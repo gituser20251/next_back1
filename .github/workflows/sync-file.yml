@@ -24,8 +24,8 @@ jobs:
           SOURCE_REPO: CFNext
           SOURCE_BRANCH: main
           SOURCE_PATH: 前后端分离版/CFNext-后端Worker版.js
-          TARGET_DIR: cloudflare
-          TARGET_PATH: cloudflare/Worker.js
+          TARGET_DIR: cf
+          TARGET_PATH: cf/_worker.js
         run: |
           set -e
           mkdir -p "$(dirname "$TARGET_PATH")"
@@ -52,7 +52,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add cloudflare/
+          git add cf/
           if git diff --cached --quiet; then
             echo "无变化，跳过提交"
             exit 0
